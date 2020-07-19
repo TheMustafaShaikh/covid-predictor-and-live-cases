@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+    <title>Symptoms</title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <a href="index.html" style="color:#C9C9C9;font-weight:500 ;">
+            < Back</a>
+    </div>
+    <div class="container" data-aos="fade-right">
+        <h1 class="display-6" style="font-weight: bolder;color:#DF0A56;">Symptoms</h1>
+    </div>
+
+    <div class="container" id="sympt" data-aos="fade-down">
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-12 col-12">
+                <div class="card" style="width: 18rem;background-color: #D5FFEE" data-aos="fade-right">
+                    <img class="card-img-top" src="images/tiredness.png" alt="Tired">
+                    <div class="card-body" style="background-color: #ffff;">
+                        <h5 class="card-title" style="color:#261D56"><strong>Tiredness</strong></h5>
+                        <p class="card-text">People with fever, cough and difficulty breathing should seek medical attention.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12 col-12">
+                <div class="card" style="width: 18rem;background-color: #D5FFEE" data-aos="fade-down">
+                    <img class="card-img-top" src="images/fever.png" alt="fever">
+                    <div class="card-body" style="background-color: #ffff;">
+                        <h5 class="card-title" style="color:#261D56"><strong>Fever</strong></h5>
+                        <p class="card-text">People with fever, cough and difficulty breathing should seek medical attention.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12 col-12">
+                <div class="card" style="width: 18rem;background-color: #EDFFE2;" data-aos="fade-left">
+                    <img class="card-img-top" src="images/ccough.png" alt="cough">
+                    <div class="card-body" style="background-color: #ffff;">
+                        <h5 class="card-title" style="color:#261D56"><strong>Cough</strong></h5>
+                        <p class="card-text">People with fever, cough and difficulty breathing should seek medical attention.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-12 col-12">
+                <div class="card" style="width: 18rem;background-color: #D5FFEE" data-aos="fade-right">
+                    <img class="card-img-top" src="images/throat.png" alt="Tired">
+                    <div class="card-body" style="background-color: #ffff;">
+                        <h5 class="card-title" style="color:#261D56"><strong>Sore throat</strong></h5>
+                        <p class="card-text">People with fever, cough and difficulty breathing should seek medical attention.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12 col-12">
+                <div class="card" style="width: 18rem;background-color: #D5FFEE" data-aos="fade-down">
+                    <img class="card-img-top" src="images/rhinitis.png" alt="fever">
+                    <div class="card-body" style="background-color: #ffff;">
+                        <h5 class="card-title" style="color:#261D56"><strong>Rhinitis</strong></h5>
+                        <p class="card-text">People with fever, cough and difficulty breathing should seek medical attention.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12 col-12">
+                <div class="card" style="width: 18rem;background-color: #EDFFE2;" data-aos="fade-left">
+                    <img class="card-img-top" src="images/headache.png" alt="cough">
+                    <div class="card-body" style="background-color: #ffff;">
+                        <h5 class="card-title" style="color:#261D56"><strong>Headache</strong></h5>
+                        <p class="card-text">People with fever, cough and difficulty breathing should seek medical attention.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <br />
+
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-12 col-12">
+                <div class="card" style="width: 18rem;background-color: #D5FFEE" data-aos="fade-right">
+                    <img class="card-img-top" src="images/breath.png" alt="Tired">
+                    <div class="card-body" style="background-color: #ffff;">
+                        <h5 class="card-title" style="color:#261D56"><strong>Shortness of Breath</strong></h5>
+                        <p class="card-text">People with fever, cough and difficulty breathing should seek medical attention.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <br/>
+        <button class="btn btn-danger text-center" onclick="predictorCorona()"><a href="#virusPredictor" style="color:white;outline: none;text-decoration: none;">Click here for Corona virus predictor</a></button>
+
+    </div>
+
+    <br/>
+
+    <div class="container" id="virusPredictor" data-aos="fade-down">
+        <h1>What Symptoms are you facing?</h1>
+        <div class="predictor" data-aos="fade-right">
+            <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input" id="customSwitch1" name="details-show" value="Tiredness">
+                <label class="custom-control-label" for="customSwitch1"><strong>Tiredness</strong></label>
+            </div>
+            <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input" id="customSwitch2" name="details-show" value="Fever">
+                <label class="custom-control-label" for="customSwitch2"><strong>Fever</strong></label>
+            </div>
+            <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input" id="customSwitch3" name="details-show" value="Cough">
+                <label class="custom-control-label" for="customSwitch3"><strong>Cough</strong></label>
+            </div>
+            <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input" id="customSwitch4" name="details-show" value="Throat">
+                <label class="custom-control-label" for="customSwitch4"><strong>Sore throat</strong></label>
+            </div>
+            <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input" id="customSwitch5" name="details-show" value="Rhinitis">
+                <label class="custom-control-label" for="customSwitch5"><strong>Rhinitis</strong></label>
+            </div>
+            <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input" id="customSwitch6" name="details-show" value="Headache">
+                <label class="custom-control-label" for="customSwitch6"><strong>Headache</strong></label>
+            </div>
+            <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input" id="customSwitch7" name="details-show" value="Breath">
+                <label class="custom-control-label" for="customSwitch7"><strong>Shortness of breath</strong></label>
+            </div>
+            <br />
+            <br />
+            <div class="result" data-aos="fade-right">
+                <div class="progress">
+                    <div class="progress-bar bg-success" role="progressbar" style="width: 50%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <h2>Result: <span id="suggestSym">Take precautions</span></h2>
+                <h2>Symptoms rate:<span id="rateSym">Less</span></h2>
+            </div>
+            <br/>
+            <button class="btn btn-danger" onclick="predictvirus()" data-aos="fade-right">Click here to predict </button>
+
+        </div>
+
+
+
+    </div>
+
+
+    <!-- <script>
+            function predictorCorona() {
+                document.querySelectorAll("input[name='details-show']:checked").forEach(function(element) {
+                    console.log(element.value);
+                });
+            }
+        </script> -->
+
+    <script src="js/script.js "></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js "></script>
+    <script>
+        AOS.init();
+    </script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default "></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJ7VvobsIYLr3Pe6cTNUnIUvzgpV2Na-o&callback=initMap&libraries=&v=weekly " defer></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js " integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj " crossorigin="anonymous "></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js " integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo " crossorigin="anonymous "></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js " integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI " crossorigin="anonymous "></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript"></script>
+
+</body>
+
+</html>

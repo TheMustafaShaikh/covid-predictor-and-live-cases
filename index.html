@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel='icon' href='https://cdn4.iconfinder.com/data/icons/coronavirus-65/64/Corona_covid19_virus_disease-256.png' type='image/x-icon' />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <title>Covid-19 Tracker</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/dropdown.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/transition.min.css">
+</head>
+
+
+
+<body>
+
+
+    <div class="container-fluid">
+        <h1 class="overview-heading">Overview</h1>
+
+        <div class="row">
+            <div class="col-lg-1 col-md-1 col-12"></div>
+
+            <div class="col-lg-4 col-md-4 col-sm-12 col-12">
+                <div class="ui fluid search selection dropdown">
+                    <input type="hidden" name="country">
+                    <i class="dropdown icon"></i>
+                    <div class="default text">Select Country</div>
+                    <div class="menu">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- <div class="search">
+            <div class="input-section">
+                <input class="search-input" type="text">
+                <img src="images/search-icon.png" width="30" alt=" Search-icon ">
+            </div>
+        </div> -->
+    </div>
+
+    <div class="container" id="show-map">
+        <div class="row" id="row">
+            <div class="col-lg-4 col-md-4 col-sm-12 col-12" id="details">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-12 col-12" id="total-cases">
+                        <div class="total" data-aos="fade-left">
+                            <p>Total Cases</p>
+                            <h4 id="head-total-case"></h4>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-12 col-12" id="total-cases">
+                        <div class="recovered" data-aos="fade-left">
+                            <p>Recovered</p>
+                            <h4 id="head-recovered-cases"></h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-12 col-12" id="total-cases">
+                        <div class="death" data-aos="fade-left">
+                            <p>Deaths</p>
+                            <h4 id="head-deaths-cases"></h4>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-12 col-12" id="total-cases">
+                        <div class="activeCases" data-aos="fade-left">
+                            <p>Active cases</p>
+                            <h4 id="head-active-cases"></h4>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-lg-8 col-md-8 col-sm-12 col-12" id="map-display">
+                <div id="map"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="table" data-aos="fade-down">
+        <div class="table-full" data-aos="fade-down">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col" class="table-heading sticky-top"><strong>Countries</strong></th>
+                        <th scope="col" class="table-heading sticky-top"><strong>cases</strong></th>
+                        <th scope="col" class="table-heading sticky-top"><strong>Death cases</strong></th>
+                        <th scope="col" class="table-heading sticky-top"><strong>Total recovered</strong></th>
+                    </tr>
+                </thead>
+                <tbody id="table-countries">
+                    <!-- <tr>
+                        <td class="country-table">Pakistan</td>
+                        <td class="table-active-cases">@mdo</td>
+                        <td class="table-deaths">123</td>
+                        <td class="table-recovered">1234</td>
+                    </tr>
+                    <tr>
+                        <td class="country-table">India</td>
+                        <td class="table-active-cases">@fat</td>
+                        <td class="table-deaths">123</td>
+                        <td class="table-recovered">1234</td>
+                    </tr>
+                    <tr>
+                        <td class="country-table">America</td>
+                        <td class="table-active-cases">@twitter</td>
+                        <td class="table-deaths">123</td>
+                        <td class="table-recovered">1234</td>
+                    </tr>
+                    <tr>
+                        <td class="country-table">America</td>
+                        <td class="table-active-cases">@twitter</td>
+                        <td class="table-deaths">123</td>
+                        <td class="table-recovered">1234</td>
+                    </tr>
+                    <tr>
+                        <td class="country-table">America</td>
+                        <td class="table-active-cases">@twitter</td>
+                        <td class="table-deaths">123</td>
+                        <td class="table-recovered">1234</td>
+                    </tr> -->
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+    <!-- this div is about graphs! -->
+    <div class="container" id="charts">
+        <div class="row" id="inner-chart">
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="show-chart1" data-aos="fade-right">
+                    <canvas id="myChart1" width="400" height="300"></canvas>
+                </div>
+
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="show-chart2" data-aos="fade-left">
+                    <div class="flourish-embed flourish-chart" data-src="story/230114">
+                        <script src="https://public.flourish.studio/resources/embed.js"></script>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <div class="container" id="new-info" data-aos="fade-right">
+        <div class="row" id="showchecl">
+            <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                <div class="cough" data-aos="fade-right">
+                    <div class="row">
+                        <div class="col-lg-5 col-md-5 col-sm-12">
+                            <img src="images/ccough.png" width="200" alt="cough" />
+                        </div>
+                        <div class="details-cough">
+                            <div class="col-lg-8 col-md-7 col-sm-12">
+                                <h3>Symptoms</h3>
+                                <p>Know the symptoms of covid19</p>
+                                <a href="symptoms.html">Learn more</a>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="row" data-aos="fade-right">
+                    <div id="cough">
+                        <div class="col-lg-5 col-md-5 col-sm-12">
+                            <img src="images/ccough.png" width="200" alt="cough" />
+                        </div>
+                        <div class="col-lg-7 col-md-7 col-sm-12" id="details-cough">
+                            <h3>Symptoms</h3>
+                            <p>Know the symptoms of covid19</p>
+                            <a href="symptoms.html">Learn more</a>
+
+                        </div>
+                    </div>
+                </div> -->
+                <div class="prevention" data-aos="fade-right">
+                    <div class="row">
+                        <div class="col-lg-5 col-md-5 col-sm-12">
+                            <img src="images/maskwear.png" width="200" alt="cough " />
+                        </div>
+
+                        <div class="details-prevention">
+                            <div class="col-lg-8 col-md-7 col-sm-12">
+                                <h3>Prevention</h3>
+                                <p>Know the preventions for covid19</p>
+                                <a href="prevention.html">Learn more</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- <div class="row" data-aos="fade-right">
+                    <div id="prevention">
+                        <div class="col-lg-5 col-md-5  col-sm-12">
+                            <img src="images/maskwear.png" width="200" alt="cough" />
+                        </div>
+                        <div class="col-lg-7 col-md-7 col-sm-12" id="details-prevention">
+                            <h3>Prevention</h3>
+                            <p>Know the preventions for covid19</p>
+                            <a href="prevention.html">Learn more</a>
+
+                        </div>
+                    </div>
+                </div> -->
+
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-12" id="news" data-aos="fade-left">
+                <div class="details" data-aos="fade-right" id="news-append">
+                    <img src="images/live.png" width="20" alt="live-icon">
+                    <div class="loading" id="loading">
+                        <!-- <img src="images/loading.gif" alt="loading" id="pic"> -->
+                        <div class="spinner-border text-primary" role="status">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <script src="js/script.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJ7VvobsIYLr3Pe6cTNUnIUvzgpV2Na-o&callback=initMap&libraries=&v=weekly " defer></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js " integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj " crossorigin="anonymous "></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js " integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo " crossorigin="anonymous "></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js " integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI " crossorigin="anonymous "></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/dropdown.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/transition.min.js"></script>
+
+</body>
+
+</html>
